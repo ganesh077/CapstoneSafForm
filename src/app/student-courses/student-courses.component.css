@@ -9,6 +9,7 @@
   
   .student-courses__table {
     width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
   }
   
@@ -56,5 +57,11 @@
     align-self: flex-end;
     margin-left: 10px;
   }
+
+  .test {
+    width: 50%;
+    background-color: rgb(149, 142, 142);
+  
+}
   
   
