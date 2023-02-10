@@ -1,0 +1,28 @@
+.student-details {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .student-details__row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .student-details__col {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+  }
+  
+  .student-details__title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .student-details__value {
+    font-size: 16px;
+  }
+
+  
