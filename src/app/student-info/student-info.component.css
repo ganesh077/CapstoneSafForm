@@ -1,7 +1,7 @@
 .student-info {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 10px;
   }
   
   .student-info__image-container {
@@ -9,8 +9,8 @@
   }
   
   .student-info__image-container img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 175px;
     border-radius: 50%;
   }
   
@@ -32,3 +32,9 @@
     font-size: 18px;
   }
   
+  .student-info__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 100px;
+    column-count: 2;
+  }

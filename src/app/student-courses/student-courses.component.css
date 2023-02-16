@@ -8,7 +8,7 @@
   }
   
   .student-courses__table {
-    width: 100%;
+    width: 60%;
     table-layout: fixed;
     border-collapse: collapse;
   }
@@ -59,9 +59,85 @@
   }
 
   .test {
-    width: 50%;
+    width: 70%;
+    height: 40px;
     background-color: rgb(149, 142, 142);
   
 }
   
+
+.texter {
+  margin: 10px;
+  padding: 10px;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+}
   
+
+.checkbox-with-dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown__menu {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  border: 1px solid #ccc;
+  padding: 5px;
+  font-size: 14px;
+  width: 150px;
+}
+.dropdown__menu option {
+  font-size: 14px;
+}
+.dropdown__button {
+  background-color: #ddd;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.student-notes__row {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.student-notes__col {
+  flex-basis: 50%;
+}
+
+.student-notes__textbox {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.student-notes__search {
+  display: flex;
+}
+
+.student-notes__search input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.student-notes__search-button {
+  background-color: #ddd;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.student-notes__button {
+  background-color: #ddd;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
