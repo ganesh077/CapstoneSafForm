@@ -1,7 +1,10 @@
-<div class="last-section">
-  <div class="last-section__content">
-    <div class="last-section__checkbox-grid">
+<form class="last-section" action="#" method="post">
+  <fieldset class="last-section__content">
+    <legend class="last-section__title">SAF Request</legend>
+    <fieldset class="last-section__checkbox-grid">
+      <legend class="last-section__subtitle">Reason for Request</legend>
       <div class="last-section__row">
+  
         <div class="last-section__col">
           <input type="checkbox" class="last-section__checkbox" id="criteria-1">
           <label for="criteria-1" class="last-section__label">Academic Standing Change</label>
@@ -26,9 +29,9 @@
           <input type="checkbox" class="last-section__checkbox" id="criteria-9">
           <label for="criteria-9" class="last-section__label">Graduation</label>
         </div>
-        </div>
-        <div class="last-section__row">
-          <div class="last-section__col">
+      </div>
+      <div class="last-section__row">
+        <div class="last-section__col">
             <input type="checkbox" class="last-section__checkbox" id="criteria-1">
             <label for="criteria-1" class="last-section__label">Registration</label>
           </div>
@@ -63,17 +66,16 @@
               </div>
             </div>
           </div>
-          
-          </div>
-</div>
-<div class="last-section__textarea-wrapper">
-<div class="last-section__textarea-header">Comments (Add details not described above)</div>
-<textarea class="last-section__textarea"></textarea>
-</div>
-<div class="last-section__buttons">
-<button class="last-section__button">Create SAF</button>
-<button class="last-section__button">Cancel</button>
-</div>
-
-  </div>
-</div>
+      </div>
+    </fieldset>
+    <br>
+    <div class="last-section__textarea-wrapper">
+      <label for="comments" class="last-section__textarea-header">Comments (Add details not described above)</label>
+      <textarea id="comments" class="last-section__textarea"></textarea>
+    </div>
+    <div class="last-section__buttons">
+      <button type="submit" class="btn btn-primary">Create SAF</button>
+      <button type="reset" class="btn btn-secondary">Cancel</button>
+    </div>
+  </fieldset>
+</form>
