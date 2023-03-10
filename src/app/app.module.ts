@@ -8,6 +8,8 @@ import { StudentInfoComponent } from './components/student-info/student-info.com
 import { StudentDetailsComponent } from './components/student-details/student-details.component';
 import { StudentCoursesComponent } from './components/student-courses/student-courses.component';
 import { SafSelectionComponent } from './components/saf-selection/saf-selection.component';
+import { CreateTicketComponent } from './components/create-ticket/create-ticket.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,10 @@ import { SafSelectionComponent } from './components/saf-selection/saf-selection.
     StudentDetailsComponent,
     StudentCoursesComponent,
     SafSelectionComponent,
+    CreateTicketComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

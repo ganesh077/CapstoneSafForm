@@ -1,25 +1,28 @@
-<div class="student-details">
-    <div class="student-details__row">
-      <div class="student-details__col">
-        <h2 class="student-details__title">Term</h2>
-        <p class="student-details__value">{{df.term}}</p>
-      </div>
-      <div class="student-details__col">
-        <h2 class="student-details__title">Program</h2>
-        <p class="student-details__value">{{df.programCode}}</p>
-      </div>
-      <div class="student-details__col">
-        <h2 class="student-details__title">Program Name</h2>
-        <p class="student-details__value">{{df.programDesc}}</p>
-      </div>
-      <div class="student-details__col">
-        <h2 class="student-details__title">Status</h2>
-        <p class="student-details__value">{{df.status}}</p>
-      </div>
-      <div class="student-details__col">
-        <h2 class="student-details__title">Standing</h2>
-        <p class="student-details__value">{{df.academicStanding}}</p>
-      </div>
-    </div>
+<div style="padding-left: 5%; padding-right: 5%">
+
+  <div style="padding-left: 3%; padding-right: 3%">
+    <h5><table class="table table-hover table-borderless">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Term</th>
+          <th scope="col" class="text-center">Program</th>
+          <th scope="col" class="text-center">Program Name</th>
+          <th scope="col" class="text-center">Status</th>
+          <th scope="col" class="text-center">Standing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="text-center">{{ df.term }}</th>
+          <td class="text-center">{{ df.program_code }}</td>
+          <td class="text-center">{{ df.program_desc }}</td>
+          <td class="text-center" [ngClass]="{'table-success': df.status === 'Active', 'table-danger': df.status !== 'Active'}">
+            {{df.status}}
+          </td>
+          <td class="text-center">{{ df.academicStanding }}</td>
+        </tr>
+      </tbody>
+    </table></h5>
+    
   </div>
-  
+</div>

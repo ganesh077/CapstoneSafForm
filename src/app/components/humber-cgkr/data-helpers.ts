@@ -8,10 +8,11 @@ export class Datahelper {
   private _humberId: string;
   private _additionalId: string;
   private _term: string;
-  private _programCode: string;
-  private _programDesc: string;
+  private _program_code: string;
+  private _program_desc: string;
   private _status: string;
   private _academicStanding: string;
+
 
   get photo(): string {
     return this._photo;
@@ -85,20 +86,20 @@ export class Datahelper {
     this._term = value;
   }
 
-  get programCode(): string {
-    return this._programCode;
+  get program_code(): string {
+    return this._program_code;
   }
 
-  set programCode(value: string) {
-    this._programCode = value;
+  set program_code(value: string) {
+    this._program_code = value;
   }
 
-  get programDesc(): string {
-    return this._programDesc;
+  get program_desc(): string {
+    return this._program_desc;
   }
 
-  set programDesc(value: string) {
-    this._programDesc = value;
+  set program_desc(value: string) {
+    this._program_desc = value;
   }
 
   get status(): string {

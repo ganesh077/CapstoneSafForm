@@ -1,43 +1,201 @@
-<div class="last-section">
-  <div class="last-section__content">
-    <div class="last-section__checkbox-grid">
-      <div class="last-section__row">
-        <div class="last-section__col">
-          <input type="checkbox" class="last-section__checkbox" id="criteria-1">
-          <label for="criteria-1" class="last-section__label">Academic Standing Change</label>
-        </div>
-        <div class="last-section__col">
-          <input type="checkbox" class="last-section__checkbox" id="criteria-2">
-          <label for="criteria-2" class="last-section__label">Admissions</label>
-        </div>
-        <div class="last-section__col">
-          <input type="checkbox" class="last-section__checkbox" id="criteria-3">
-          <label for="criteria-3" class="last-section__label">Apply/Remove Holds</label>
-        </div>
+<style>
+  .form-check:hover {
+    box-shadow: 0 0 10px #ca5454;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+
+  .form-check-label:hover {
+    color: #000000;
+    font-size: 1.2em;
+    transition: font-size 0.3s ease-in-out;
+  }
+  .btn:hover {
+    outline: 5px solid #062ee0;
+    outline-offset: 2px;
+    transition: outline-color 0.3s ease-in-out, outline-offset 0.3s ease-in-out;
+  }
+  .btn:focus {
+    outline: 5px solid #058b17;
+    outline-offset: 5px;
+    transition: outline-color 0.3s ease-in-out, outline-offset 0.3s ease-in-out;
+  }
+</style>
+
+
+<form (ngSubmit)="onSubmit()">
+<div style="padding-left: 5%; padding-right: 5%">
+    <div class="last-section mb-2">
+      <fieldset>
+        <legend
+          class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
+        >
+          Choose the appropriate option/s for creating a query!
+        </legend>
+        <h4>
+          <div class="row">
+            <div class="col">
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault1"
+                />
+                <label class="form-check-label" for="flexCheckDefault1"
+                  >Academic Standing Change</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-3"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault2"
+                />
+                <label class="form-check-label" for="flexCheckDefault2"
+                  >Admissions</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault3"
+                />
+                <label class="form-check-label" for="flexCheckDefault3"
+                  >Apply/Remove Holds</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault4"
+                />
+                <label class="form-check-label" for="flexCheckDefault4"
+                  >Duplicate Person</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault5"
+                />
+                <label class="form-check-label" for="flexCheckDefault5"
+                  >Grade Change</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault6"
+                />
+                <label class="form-check-label" for="flexCheckDefault6"
+                  >Graduation</label
+                >
+              </div>
+            </div>
+
+            <div class="col">
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault7"
+                />
+                <label class="form-check-label" for="flexCheckDefault7"
+                  >Registration</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault8"
+                />
+                <label class="form-check-label" for="flexCheckDefault8"
+                  >Resume/Transfer</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault9"
+                />
+                <label class="form-check-label" for="flexCheckDefault9"
+                  >Transcript Requests (for historical records only)</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault10"
+                />
+                <label class="form-check-label" for="flexCheckDefault10"
+                  >Withdraw from Current Program</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault11"
+                />
+                <label class="form-check-label" for="flexCheckDefault11"
+                  >Other (Describe below)</label
+                >
+              </div>
+              <div class="form-check my-3">
+                <input
+                  class="form-check-input my-2"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault12"
+                />
+                <label class="form-check-label" for="flexCheckDefault12"
+                  >Authorized Leaves</label
+                >
+              </div>
+            </div>
+
+            <fieldset>
+              <legend>Add any additional comments</legend>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="floatingTextarea2Disabled"
+                  style="height: 200px"
+                  name="comments"
+                  #commentsInput
+                ></textarea>
+              </div>
+            </fieldset>
+          </div>
+        </h4>
+      </fieldset>
+      <br />
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary btn-lg" type="submit" name="submit" id="create-ticket-btn">
+          Create Ticket!
+        </button>
       </div>
-      <div class="last-section__row">
-        <div class="last-section__col">
-          <input type="checkbox" class="last-section__checkbox" id="criteria-4">
-          <label for="criteria-4" class="last-section__label">Duplicate Person</label>
-        </div>
-        <div class="last-section__col">
-          <input type="checkbox" class="last-section__checkbox" id="criteria-5">
-          <label for="criteria-5" class="last-section__label">Grade Change</label>
-        </div>
-        <div class="last-section__col">
-          <input type="checkbox" class="last-section__checkbox" id="criteria-6">
-          <label for="criteria-6" class="last-section__label">Graduation</label>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="last-section__textarea-wrapper">
-      <div class="last-section__textarea-header">Comments</div>
-      <textarea class="last-section__textarea"></textarea>
-    </div>
-    <div class="last-section__buttons">
-      <button class="last-section__button">Create SAF</button>
-      <button class="last-section__button">Cancel</button>
     </div>
   </div>
-</div>
+
+</form>
+  
+

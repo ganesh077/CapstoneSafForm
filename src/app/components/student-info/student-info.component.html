@@ -1,12 +1,97 @@
-<div class="student-info">
-    <div class="student-info__image-container">
-      <img src="https://via.placeholder.com/150x150" alt="student picture">
+<!-- <div class="mt-3" style="padding-left: 5%; padding-right: 5%">
+  <h4>
+    <div class="student-info">
+      <div class="student-info__image-container">
+        <img src="https://via.placeholder.com/150x150" alt="student picture" />
+      </div>
+      <div class="student-info__details">
+        <h1 class="student-info__name">{{ df.firstName }} {{ df.lastName }}</h1>
+        <p class="student-info__email">{{ df.email }}</p>
+        <p class="student-info__enrollment-date">
+          Humber Number : {{ df.humberId }}
+        </p>
+        <p class="student-info__enrollment-date">
+          Additional ID : {{ df.additionalId }}
+        </p>
+      </div>
     </div>
-    <div class="student-info__details">
-      <h1 class="student-info__name">{{df.firstName}} {{df.lastName}}</h1>
-      <p class="student-info__email">{{df.email}}</p>
-      <p class="student-info__enrollment-date">Humber Number : {{df.humberId}}</p>
-      <p class="student-info__enrollment-date">Additional ID : {{df.additionalId}}</p>
+  </h4>
+</div> -->
+
+<section style="background-color: #eee">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img
+              src="https://i.ibb.co/kcrq7kk/Far-Cry-4-20160610202237.jpg"
+              alt="avatar"
+              class="rounded-circle img-fluid"
+              style="width: 150px"
+            />
+            <h5 class="my-3">{{ df.firstName }} {{ df.lastName }}</h5>
+            <p class="text-muted mb-1">{{ df.humberId }}</p>
+
+            <div class="d-flex justify-content-center mb-2">
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">
+                  {{ df.firstName }} {{ df.middleName }} {{ df.lastName }}
+                </p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ df.email }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ df.phones }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Humber Id</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ df.humberId }}</p>
+              </div>
+            </div>
+            <hr />
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Additional Id</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{ df.additionalId }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
+</section>
