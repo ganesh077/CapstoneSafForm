@@ -83,6 +83,7 @@
 
 .student-notes__search {
   display: flex;
+  align-items: stretch; /* Add this line to align the button and input */
 }
 
 .student-notes__search input {
@@ -93,8 +94,9 @@
 }
 
 .student-notes__search-button {
-  background-color: #ddd;
-  padding: 5px;
+  padding: 5px 12px; /* Adjust padding to match the input field's height */
+  font-size: 16px; /* Match the font size with the input field */
+  line-height: 1.5; /* Adjust line-height to center the button text vertically */
   border: none;
   cursor: pointer;
 }

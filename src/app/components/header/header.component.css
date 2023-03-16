@@ -1,5 +1,5 @@
 .header {
-  background-color: rgb(29, 132, 173);
+  background-color: rgb(29, 164, 188);
   color: #fff;
   display: flex; /* add display flex to header to allow for positioning of items */
   align-items: center; /* align items to the center vertically */
