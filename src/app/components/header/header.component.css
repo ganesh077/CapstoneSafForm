@@ -36,8 +36,18 @@
 }
 
 .header__image {
-  width: 70px;
-  height: 70px;
+  max-height: 100%; /* Set the max-height to 100% so the image doesn't exceed the banner height */
+  width: auto; /* Set the width to auto so it maintains the aspect ratio */
   object-fit: cover;
-  margin-right: 10px; /* add margin to the right to create space between logo and text */
+  margin-right: 10px; /* Add margin to the right to create space between logo and text */
+}
+
+.header {
+  height: 70px; /* Set the height of the header */
+}
+
+.header__content {
+  display: flex; /* Set the display to flex so the elements inside are aligned */
+  align-items: center; /* Vertically align the logo and navigation elements */
+  height: 100%; /* Set the height to 100% so it fills the header */
 }
