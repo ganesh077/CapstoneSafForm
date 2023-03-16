@@ -63,5 +63,47 @@
     background-color: rgb(149, 142, 142);
   
 }
+
+.student-notes__row {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.student-notes__col {
+  flex-basis: 50%;
+}
+
+.student-notes__textbox {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.student-notes__search {
+  display: flex;
+}
+
+.student-notes__search input {
+  flex: 1;
+  padding: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.student-notes__search-button {
+  background-color: #ddd;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.student-notes__button {
+  background-color: #ddd;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
   
   

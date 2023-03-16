@@ -148,13 +148,15 @@
       <div class="student-notes">
         <div class="student-notes__row">
           <div class="student-notes__col">
-            <h4 class="student-notes__sub-title">Course Code</h4>
-            <textarea class="student-notes__textarea"></textarea>
+            <label for="course-code" class="student-notes__sub-title">Course Code</label>
+            <input type="text" id="course-code" class="student-notes__textbox">
           </div>
           <div class="student-notes__col">
-            <h4 class="student-notes__sub-title">CRN</h4>
-            <textarea class="student-notes__textarea"></textarea>
-            <button class="student-notes__button">+</button>
+            <label for="crn" class="student-notes__sub-title">CRN</label>
+            <div class="student-notes__search">
+              <input type="text" id="crn" class="student-notes__textbox">
+              <button class="student-notes__search-button">Search</button>
+            </div>
           </div>
         </div>
       </div>
