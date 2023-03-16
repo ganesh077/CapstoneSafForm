@@ -21,9 +21,8 @@
   }
 </style>
 
-
 <form (ngSubmit)="onSubmit()">
-<div style="padding-left: 5%; padding-right: 5%">
+  <div style="padding-left: 5%; padding-right: 5%">
     <div class="last-section mb-2">
       <fieldset>
         <legend
@@ -31,7 +30,7 @@
         >
           Choose the appropriate option/s for creating a query!
         </legend>
-        <h4>
+        <h5>
           <div class="row">
             <div class="col">
               <div class="form-check my-3">
@@ -185,17 +184,19 @@
               </div>
             </fieldset>
           </div>
-        </h4>
+        </h5>
       </fieldset>
       <br />
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <button class="btn btn-primary btn-lg" type="submit" name="submit" id="create-ticket-btn">
+        <button
+          class="btn btn-primary btn-lg"
+          type="submit"
+          name="submit"
+          id="create-ticket-btn"
+        >
           Create Ticket!
         </button>
       </div>
     </div>
   </div>
-
 </form>
-  
-
