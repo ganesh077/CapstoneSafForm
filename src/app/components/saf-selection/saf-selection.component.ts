@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import {Apihelpers} from '../humber-cgkr/api-helpers';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-saf-selection',
@@ -7,8 +10,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./saf-selection.component.css'],
 })
 export class SafSelectionComponent implements OnInit {
+  call: Apihelpers;
   // @ViewChild('commentsInput') commentsInput!: ElementRef;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {
+    this.call = new Apihelpers(http);
+  }
 
   formData = {
     comments: '',
@@ -48,6 +54,21 @@ export class SafSelectionComponent implements OnInit {
       }
     }
     console.log('Selected options:', selectedOptions);
+    const requestData = {
+      summary: '2 - Custom Fields Ticket',
+      description: '2 - Creating ticket with custom fields',
+      registrarAction: selectedOptions.join(', '),
+      registrarComment: this.formData.comments,
+      components: 'Registration',
+    };
+    this.call.submitFormData(requestData).subscribe(
+      (response) => {
+        console.log('POST request successful', response);
+      },
+      (error) => {
+        console.log('Error sending POST request', error);
+      }
+    );
 
     // // Send form data to server
     // this.http.post('https://send.com/post', this.formData).subscribe(
@@ -59,6 +80,12 @@ export class SafSelectionComponent implements OnInit {
     //   }
     // );
   }
-
+  submitFormData(formData: any): Observable<any> {
+    
+    return this.http.post(
+      'http://ec2-3-208-6-206.compute-1.amazonaws.com:8083/createTicket',
+      formData
+    );
+  }
   ngOnInit(): void {}
 }
