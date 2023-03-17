@@ -7,17 +7,58 @@ import { Router } from '@angular/router';
   styleUrls: ['./saf-selection.component.css'],
 })
 export class SafSelectionComponent implements OnInit {
-  @ViewChild('commentsInput') commentsInput!: ElementRef;
+  // @ViewChild('commentsInput') commentsInput!: ElementRef;
   constructor(private router: Router) {}
+
   formData = {
     comments: '',
+    academicStandingChange: false,
+    admissions: false,
+    applyRemoveHolds: false,
+    duplicatePerson: false,
+    gradeChange: false,
+    graduation: false,
+    registration: false,
+    resumeTransfer: false,
+    transcriptRequests: false,
+    withdrawFromCurrentProgram: false,
+    other: false,
+    authorizedLeaves: false,
   };
+
   onSubmit() {
-    const comments = this.commentsInput.nativeElement.value;
-    console.log('in here', comments);
-    const formData = { comments };
-    //Will call post request here, use api helper and wrap
-    // this.router.navigate(['/create-ticket'], { state: { formData } });
+    // console.log('Academic Standing Change:', this.formData.academicStandingChange);
+    // console.log('Admissions:', this.formData.admissions);
+    // console.log('Apply/Remove Holds:', this.formData.applyRemoveHolds);
+    // console.log('Duplicate Person:', this.formData.duplicatePerson);
+    // console.log('Grade Change:', this.formData.gradeChange);
+    // console.log('Graduation:', this.formData.graduation);
+    // console.log('Registration:', this.formData.registration);
+    // console.log('Resume/Transfer:', this.formData.resumeTransfer);
+    // console.log('Transcript Requests:', this.formData.transcriptRequests);
+    // console.log('Withdraw from Current Program:', this.formData.withdrawFromCurrentProgram);
+    // console.log('Other:', this.formData.other);
+    // console.log('Authorized Leaves:', this.formData.authorizedLeaves);
+    // console.log('Authorized Leaves:', this.formData.comments);
+    // Collect selected options
+    const selectedOptions = [];
+    for (const key in this.formData) {
+      if (this.formData.hasOwnProperty(key) && this.formData[key] === true) {
+        selectedOptions.push(key);
+      }
+    }
+    console.log('Selected options:', selectedOptions);
+
+    // // Send form data to server
+    // this.http.post('https://send.com/post', this.formData).subscribe(
+    //   (response) => {
+    //     console.log('POST request successful', response);
+    //   },
+    //   (error) => {
+    //     console.log('Error sending POST request', error);
+    //   }
+    // );
   }
+
   ngOnInit(): void {}
 }

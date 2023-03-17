@@ -5,7 +5,7 @@
     transition: font-size 0.3s ease-in-out;
   }
   .btn:hover {
-    outline: 5px solid #0298F4;
+    outline: 5px solid #0298f4;
     outline-offset: 2px;
     transition: outline-color 0.3s ease-in-out, outline-offset 0.3s ease-in-out;
   }
@@ -33,19 +33,22 @@
             <legend
               class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
             >
-            <i class="fas fa-info-circle"></i>
-            <span> Choose the appropriate option/s for creating a query!</span>
-              
+              <i class="fas fa-info-circle"></i>
+              <span>
+                Choose the appropriate option/s for creating a query!</span
+              >
             </legend>
             <h5>
               <div class="row">
                 <div class="col">
                   <div class="form-check my-3">
                     <input
+                      name="academicStandingChange"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault1"
+                      [(ngModel)]="formData.academicStandingChange"
                     />
                     <label class="form-check-label" for="flexCheckDefault1"
                       >Academic Standing Change</label
@@ -53,10 +56,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="admissions"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault2"
+                      [(ngModel)]="formData.admissions"
                     />
                     <label class="form-check-label" for="flexCheckDefault2"
                       >Admissions</label
@@ -64,10 +69,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="applyRemoveHolds"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault3"
+                      [(ngModel)]="formData.applyRemoveHolds"
                     />
                     <label class="form-check-label" for="flexCheckDefault3"
                       >Apply/Remove Holds</label
@@ -75,10 +82,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="duplicatePerson"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault4"
+                      [(ngModel)]="formData.duplicatePerson"
                     />
                     <label class="form-check-label" for="flexCheckDefault4"
                       >Duplicate Person</label
@@ -86,10 +95,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="gradeChange"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault5"
+                      [(ngModel)]="formData.gradeChange"
                     />
                     <label class="form-check-label" for="flexCheckDefault5"
                       >Grade Change</label
@@ -97,10 +108,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="graduation"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault6"
+                      [(ngModel)]="formData.graduation"
                     />
                     <label class="form-check-label" for="flexCheckDefault6"
                       >Graduation</label
@@ -111,10 +124,12 @@
                 <div class="col">
                   <div class="form-check my-3">
                     <input
+                    name="registration"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault7"
+                      [(ngModel)]="formData.registration"
                     />
                     <label class="form-check-label" for="flexCheckDefault7"
                       >Registration</label
@@ -122,10 +137,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="resumeTransfer"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault8"
+                      [(ngModel)]="formData.resumeTransfer"
                     />
                     <label class="form-check-label" for="flexCheckDefault8"
                       >Resume/Transfer</label
@@ -133,10 +150,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="transcriptRequests"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault9"
+                      [(ngModel)]="formData.transcriptRequests"
                     />
                     <label class="form-check-label" for="flexCheckDefault9"
                       >Transcript Requests (for historical records only)</label
@@ -144,10 +163,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="withdrawFromCurrentProgram"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault10"
+                      [(ngModel)]="formData.withdrawFromCurrentProgram"
                     />
                     <label class="form-check-label" for="flexCheckDefault10"
                       >Withdraw from Current Program</label
@@ -155,10 +176,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="other"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault11"
+                      [(ngModel)]="formData.other"
                     />
                     <label class="form-check-label" for="flexCheckDefault11"
                       >Other (Describe below)</label
@@ -166,10 +189,12 @@
                   </div>
                   <div class="form-check my-3">
                     <input
+                    name="authorizedLeaves"
                       class="form-check-input my-2"
                       type="checkbox"
                       value=""
                       id="flexCheckDefault12"
+                      [(ngModel)]="formData.authorizedLeaves"
                     />
                     <label class="form-check-label" for="flexCheckDefault12"
                       >Authorized Leaves</label
@@ -186,6 +211,7 @@
                       id="floatingTextarea2Disabled"
                       style="height: 200px"
                       name="comments"
+                      [(ngModel)]="formData.comments"
                       #commentsInput
                     ></textarea>
                   </div>
