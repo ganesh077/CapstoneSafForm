@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import {Apihelpers} from '../humber-cgkr/api-helpers';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-saf-selection',
@@ -61,7 +61,7 @@ export class SafSelectionComponent implements OnInit {
       registrarComment: this.formData.comments,
       components: 'Registration',
     };
-    this.call.submitFormData(requestData).subscribe(
+    this.submitFormData(requestData).subscribe(
       (response) => {
         console.log('POST request successful', response);
       },
@@ -81,10 +81,17 @@ export class SafSelectionComponent implements OnInit {
     // );
   }
   submitFormData(formData: any): Observable<any> {
-    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa('canoltasgin46@gmail.com:ATATT3xFfGF0_znnp_WfLlY4QVw9qN0hXiLlO3tnN_R9NBSDTQO06vmS1mirsFUTDO_Pb7H3yHmKkNvxsDdiyBv5pBIZ10u8huLmn9MHE-z6Po4UTu259-0s10yQilNyEtZamsav3BVTvDE793O7qku8krzwM69J1z4dIkGyFOKydVA6LOaif0I=57E4E5E5')
+      })
+    };
+  
     return this.http.post(
       'http://ec2-3-208-6-206.compute-1.amazonaws.com:8083/createTicket',
-      formData
+      formData,
+      httpOptions
     );
   }
   ngOnInit(): void {}
