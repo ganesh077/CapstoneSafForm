@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Apihelpers } from '../humber-cgkr/api-helpers';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { SharedService } from '../humber-cgkr/service-helpers';
 @Component({
   selector: 'app-saf-selection',
   templateUrl: './saf-selection.component.html',
@@ -11,9 +12,18 @@ import { environment } from 'src/environments/environment';
 })
 export class SafSelectionComponent implements OnInit {
   call: Apihelpers;
+  actionsTaken: any[] = [];
   // @ViewChild('commentsInput') commentsInput!: ElementRef;
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private sharedService: SharedService,
+    private router: Router,
+    private http: HttpClient
+  ) {
     this.call = new Apihelpers(http);
+
+    this.sharedService.actionsTaken$.subscribe((actions) => {
+      this.actionsTaken = actions;
+    });
   }
 
   formData = {
@@ -33,21 +43,8 @@ export class SafSelectionComponent implements OnInit {
   };
 
   onSubmit() {
-    // console.log('Academic Standing Change:', this.formData.academicStandingChange);
-    // console.log('Admissions:', this.formData.admissions);
-    // console.log('Apply/Remove Holds:', this.formData.applyRemoveHolds);
-    // console.log('Duplicate Person:', this.formData.duplicatePerson);
-    // console.log('Grade Change:', this.formData.gradeChange);
-    // console.log('Graduation:', this.formData.graduation);
-    // console.log('Registration:', this.formData.registration);
-    // console.log('Resume/Transfer:', this.formData.resumeTransfer);
-    // console.log('Transcript Requests:', this.formData.transcriptRequests);
-    // console.log('Withdraw from Current Program:', this.formData.withdrawFromCurrentProgram);
-    // console.log('Other:', this.formData.other);
-    // console.log('Authorized Leaves:', this.formData.authorizedLeaves);
-    // console.log('Authorized Leaves:', this.formData.comments);
-    // Collect selected options
     const selectedOptions = [];
+    console.log('inside saf', this.actionsTaken);
     for (const key in this.formData) {
       if (this.formData.hasOwnProperty(key) && this.formData[key] === true) {
         selectedOptions.push(key);
@@ -81,7 +78,6 @@ export class SafSelectionComponent implements OnInit {
     // );
   }
   submitFormData(formData: any): Observable<any> {
-   
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -91,7 +87,7 @@ export class SafSelectionComponent implements OnInit {
     };
 
     return this.http.post(
-      'http://localhost:8083/createTicket',
+      'http://ec2-3-208-6-206.compute-1.amazonaws.com:8083/createTicket',
       formData,
       httpOptions
     );

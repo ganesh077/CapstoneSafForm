@@ -13,7 +13,6 @@ export class Datahelper {
   private _status: string;
   private _academicStanding: string;
 
-
   get photo(): string {
     return this._photo;
   }
