@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Apihelpers } from '../humber-cgkr/api-helpers';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
 import { SharedService } from '../humber-cgkr/service-helpers';
 import { Datahelper } from '../humber-cgkr/data-helpers';
 @Component({
@@ -15,6 +13,8 @@ export class SafSelectionComponent implements OnInit {
   call: Apihelpers;
   actionsTaken: any[] = [];
   @Input() df: Datahelper;
+  successMessage: string;
+  failureMessage: string;
   // @ViewChild('commentsInput') commentsInput!: ElementRef;
   constructor(
     private sharedService: SharedService,
@@ -75,9 +75,6 @@ export class SafSelectionComponent implements OnInit {
     });
     console.log(resultString);
 
-    // const actionArray = this.actionsTaken.map((obj) => Object.values(obj));
-    // console.log(actionArray);
-
     const actionsTakenString = this.actionsTaken.join(', ');
     console.log(actionsTakenString);
     console.log('Selected options:', selectedOptions);
@@ -85,15 +82,21 @@ export class SafSelectionComponent implements OnInit {
       firstName: this.df.lastName + ', ' + this.df.firstName,
       description: this.df.humberId,
       registrarAction: selectedOptions.join(', '),
-      registrarComment: this.formData.comments + '\n' + resultString,
+      registrarComment:
+        this.formData.comments + '\n' + resultString + authorizedLeavesReason,
       components: 'Registration',
     };
+
     this.call.submitFormData(requestData).subscribe(
       (response) => {
         console.log('POST request successful', response);
+        this.successMessage = 'Ticket created successfully!';
+        this.failureMessage = '';
       },
       (error) => {
         console.log('Error sending POST request', error);
+        this.successMessage = '';
+        this.failureMessage = 'Failed to create the ticket. Please try again.';
       }
     );
     console.log(requestData);

@@ -65,7 +65,7 @@
                         aria-expanded="false"
                         data-bs-toggle="dropdown"
                       >
-                        Choose One
+                        {{ selectedActions[i]?.action }}
                       </button>
 
                       <div
@@ -192,16 +192,23 @@
             <label for="course-code" class="student-notes__sub-title"
               >Course Code</label
             >
-            <input type="text" id="course-code" class="student-notes__textbox" #courseCode />
+            <input
+              type="text"
+              id="course-code"
+              class="student-notes__textbox"
+              #courseCode
+            />
           </div>
           <div class="student-notes__col">
             <label for="crn" class="student-notes__sub-title">CRN</label>
             <div class="student-notes__search">
               <input type="text" id="crn" class="student-notes__textbox" #crn />
-              <button class="btn btn-primary student-notes__search-button" (click)="handleAddSubmit(courseCode.value, crn.value)">
+              <button
+                class="btn btn-primary student-notes__search-button"
+                (click)="handleAddSubmit(courseCode.value, crn.value)"
+              >
                 Add
               </button>
-              
             </div>
           </div>
         </div>

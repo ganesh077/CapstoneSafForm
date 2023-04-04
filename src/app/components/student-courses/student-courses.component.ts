@@ -68,10 +68,6 @@ export class StudentCoursesComponent implements OnInit {
       newCourseCode !== '' && newCourseCode !== undefined
         ? newCourseCode
         : 'NA';
-    // if (action === 'drop') {
-    //   this.selectedActions[index].newCrn = oldCrn;
-    //   this.selectedActions[index].newCourseCode = oldCourseCode;
-    // }
 
     console.log(
       'Action submitted:',
