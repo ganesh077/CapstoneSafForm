@@ -26,32 +26,26 @@ export class AppComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute
   ) {
     this.call = new Apihelpers(http);
-    // this.call.fetchStudent('N01498359');
-    // this.dh = this.call.getData();
-
-    // console.log('the var', this.name);
   }
 
-
-  // Still under development
+ //Entry point variable, fetches query param from url, passed on from an external form. param called 'inputField', use it for fetching HumberId
   ngOnInit(): void {
-    this.queryParamsSubscription = this.activatedRoute.queryParams.subscribe(params => {
-      console.log('Query Params:', params); // Debugging statement
-      this.inputFieldValue = params['inputField'];
-      console.log('Input Field Value:', this.inputFieldValue); // Debugging statement
-
-      // Fetch the student data using the inputFieldValue
-      if (this.inputFieldValue) {
-        this.call.fetchStudent(this.inputFieldValue);
-        this.dh = this.call.getData();
-        console.log('Data:', this.dh); // Debugging statement
+    this.queryParamsSubscription = this.activatedRoute.queryParams.subscribe(
+      (params) => {
+        console.log('Query Params:', params); 
+        this.inputFieldValue = params['inputField'];
+        console.log('Input Field Value:', this.inputFieldValue); 
+        
+        if (this.inputFieldValue) {
+          this.call.fetchStudent(this.inputFieldValue);
+          this.dh = this.call.getData();
+          console.log('Data:', this.dh); 
+        }
       }
-    });
+    );
   }
 
   ngOnDestroy(): void {
     this.queryParamsSubscription.unsubscribe();
   }
-
-  
 }

@@ -4,6 +4,7 @@ import { Apihelpers } from '../humber-cgkr/api-helpers';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { SharedService } from '../humber-cgkr/service-helpers';
 import { Datahelper } from '../humber-cgkr/data-helpers';
+
 @Component({
   selector: 'app-saf-selection',
   templateUrl: './saf-selection.component.html',
@@ -15,18 +16,24 @@ export class SafSelectionComponent implements OnInit {
   @Input() df: Datahelper;
   successMessage: string;
   failureMessage: string;
-  // @ViewChild('commentsInput') commentsInput!: ElementRef;
   constructor(
     private sharedService: SharedService,
     private router: Router,
     private http: HttpClient
   ) {
+    // Initialize Apihelpers class instance for API calls
     this.call = new Apihelpers(http);
 
+    // Subscribe to actionsTaken observable to update actionsTaken array
     this.sharedService.actionsTaken$.subscribe((actions) => {
       this.actionsTaken = actions;
     });
   }
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  // Initialize form data properties
   authorizedLeavesEnabled = false;
   formData = {
     comments: '',
@@ -44,9 +51,13 @@ export class SafSelectionComponent implements OnInit {
     authorizedLeaves: false,
     authorizedLeavesOptions: '',
   };
+
+  // Method called on authorizedLeaves checkbox change
   onAuthorizedLeavesChange() {
     this.authorizedLeavesEnabled = !this.authorizedLeavesEnabled;
   }
+
+  // Method called on form submit
   onSubmit() {
     let authorizedLeavesReason = '';
     if (this.formData.authorizedLeaves) {
@@ -61,7 +72,9 @@ export class SafSelectionComponent implements OnInit {
         selectedOptions.push(key);
       }
     }
+
     let resultString = '';
+    // Iterate over the actionsTaken array and create a string describing the actions taken
     this.actionsTaken.forEach((obj) => {
       if (obj.action === 'Drop') {
         resultString += `${obj.action} '${obj.oldCourseCode}' \n`;
@@ -73,18 +86,19 @@ export class SafSelectionComponent implements OnInit {
         resultString += `${obj.action} '${obj.oldCourseCode}' to '${obj.newCourseCode}' \n`;
       }
     });
-    console.log(resultString);
 
-    const actionsTakenString = this.actionsTaken.join(', ');
-    console.log(actionsTakenString);
+    console.log(resultString);
     console.log('Selected options:', selectedOptions);
+
+    // Create an object containing the data to be submitted in the POST request
     const requestData = {
       firstName: this.df.lastName + ', ' + this.df.firstName,
       description: this.df.humberId,
       registrarAction: selectedOptions.join(', '),
+      // Add comments entered by the user and the result string describing the actions taken
       registrarComment:
         this.formData.comments + '\n' + resultString + authorizedLeavesReason,
-      components: 'Registration',
+      components: 'Registration', // Hardcode components as "Registration" as per the requirements
     };
 
     this.call.submitFormData(requestData).subscribe(
@@ -99,7 +113,7 @@ export class SafSelectionComponent implements OnInit {
         this.failureMessage = 'Failed to create the ticket. Please try again.';
       }
     );
+
     console.log(requestData);
   }
-  ngOnInit(): void {}
 }

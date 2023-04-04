@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class StudentCoursesComponent implements OnInit {
   constructor(private sharedService: SharedService) {}
+
+  // courses array containing course name and code
   courses = [
     { name: 'Course 1', code: 'CSE101' },
     { name: 'Course 2', code: 'CSE102' },
@@ -16,7 +18,11 @@ export class StudentCoursesComponent implements OnInit {
     { name: 'Course 4', code: 'CSE104' },
     { name: 'Course 5', code: 'CSE105' },
   ];
+
+  // dropDetails array for holding information about the dropped courses
   dropDetails: { courseCode: string; crn: string }[] = [];
+
+  // selectedActions array for holding information about selected actions and their state
   selectedActions: {
     action: string;
     disabled: boolean;
@@ -27,6 +33,7 @@ export class StudentCoursesComponent implements OnInit {
     disabled: true,
   }));
 
+  // handle drop action
   handleDrop(index: number): void {
     this.selectedActions[index] = {
       action: 'Drop',
@@ -35,14 +42,16 @@ export class StudentCoursesComponent implements OnInit {
     console.log(this.selectedActions);
   }
 
+  // handle transfer action
   handleTransfer(index: number): void {
     this.selectedActions[index] = {
       action: 'Transfer',
-
       disabled: false,
     };
     console.log(this.selectedActions);
   }
+
+  // handle add course submit
   handleAddSubmit(courseCode: string, crn: string): void {
     const actionData = {
       action: 'Add',
@@ -55,7 +64,10 @@ export class StudentCoursesComponent implements OnInit {
     this.sharedService.updateActionsTaken(this.actionsTaken);
   }
 
+  // array to hold information about the actions taken
   actionsTaken: any[] = [];
+
+  // handle transfer submit
   handleTransferSubmit(
     action: string,
     newCrn: string,
@@ -87,8 +99,9 @@ export class StudentCoursesComponent implements OnInit {
     this.actionsTaken.push(actionData);
     console.log(this.actionsTaken);
     this.sharedService.updateActionsTaken(this.actionsTaken);
-    // handle the transfer submit logic here
   }
+
+  // delete action from the list of actions taken
   deleteAction(index: number): void {
     this.actionsTaken.splice(index, 1);
     this.sharedService.updateActionsTaken(this.actionsTaken);

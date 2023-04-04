@@ -1,3 +1,9 @@
+/**
+
+    The Datahelper class is a simple class that holds student data.
+    It defines getters and setters for each property of the student object.
+    It's main purpose is to provide a way to store and retrieve student data in a uniform way.
+    */
 export class Datahelper {
   private _photo: string;
   private _lastName: string;

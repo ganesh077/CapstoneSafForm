@@ -1,3 +1,7 @@
+/**
+
+    Injectable service to share data between components
+    */
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -7,6 +11,7 @@ import { BehaviorSubject } from 'rxjs';
 export class SharedService {
   private actionsTakenSource = new BehaviorSubject<any[]>([]);
   actionsTaken$ = this.actionsTakenSource.asObservable();
+
 
   updateActionsTaken(actions: any[]) {
     this.actionsTakenSource.next(actions);

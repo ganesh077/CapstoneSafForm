@@ -1,12 +1,7 @@
-<!-- <p *ngFor="let i of _arr">
-  <app-button text="Click to call the api" (btnClick)="toggle(i)"></app-button>
-  {{ i }}
-</p> -->
-<!-- <p>{{ dh.photo }}</p> -->
 <section style="background-color: #eee">
 <app-header></app-header>
+<!-- Passing data from app.component to other components-->
 <app-student-info [df] = "dh" ></app-student-info>
-<!-- <app-student-details [df] = "dh" ></app-student-details> -->
 <app-student-courses ></app-student-courses>
 <app-saf-selection [df] = "dh"></app-saf-selection>
 </section>

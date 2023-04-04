@@ -5,21 +5,19 @@ import { Datahelper } from './data-helpers';
 import { environment } from 'src/environments/environment';
 
 export class Apihelpers {
-  _arr: any[] = [];
   private _dh: Datahelper;
+
   constructor(private http: HttpClient) {
     this._dh = new Datahelper();
   }
-  call: Apihelpers;
 
+  // async function to fetch student data
   async fetchStudent(id: string) {
     try {
       const data = await this.subbing(id);
       const studentList = data.recordset[0];
-      // const array = Object.values(studentList).map(String);
-      // this._arr = array;
-      console.log('after this', studentList);
 
+      // set student data to Datahelper instance
       this._dh.photo = studentList.photo;
       this._dh.lastName = studentList.lastName;
       this._dh.firstName = studentList.firstName;
@@ -33,27 +31,33 @@ export class Apihelpers {
       this._dh.program_desc = studentList.program_desc;
       this._dh.status = studentList.status;
       this._dh.academicStanding = studentList.academicStanding;
-      console.log(this._dh);
 
       return this._dh;
     } catch (error) {
       console.error(error);
     }
   }
+
+  // function to get Datahelper instance
   getData() {
     return this._dh;
   }
-  // console.log('Toggling toggle')
+
+  // async function to call API endpoint
+  //Api call to fetch student details, use it to fetch student details from server.
   async subbing(id: string) {
     try {
       const response = await this.http
         .get<any>(`http://localhost:3000/${id}`)
         .toPromise();
+
       return response;
     } catch (error) {
       console.error(error);
     }
   }
+
+  // function to submit form data to API endpoint
   submitFormData(formData: any): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -62,7 +66,7 @@ export class Apihelpers {
           'Basic ' + btoa(`${environment.username}:${environment.pass}`),
       }),
     };
-
+    //Replace the url with JIRA backend server.
     return this.http.post(
       'http://localhost:8083/createTicket',
       formData,
