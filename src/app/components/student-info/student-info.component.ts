@@ -9,7 +9,6 @@ export class StudentInfoComponent{
   @Input() df: Datahelper
   
   constructor() { 
-    console.log('Inside info yooo', this.df)
   }
 
 }

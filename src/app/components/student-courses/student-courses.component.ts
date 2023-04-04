@@ -15,7 +15,7 @@ export class StudentCoursesComponent implements OnInit {
     { name: 'Course 3', code: 'CSE103' },
     { name: 'Course 4', code: 'CSE104' },
     { name: 'Course 5', code: 'CSE105' },
-  ];
+  ]; 
   dropDetails: { courseCode: string; crn: string }[] = [];
   selectedActions: {
     action: string;

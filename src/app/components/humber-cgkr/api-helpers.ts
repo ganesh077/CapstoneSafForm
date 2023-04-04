@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Datahelper } from './data-helpers';
+import { environment } from 'src/environments/environment';
 
 export class Apihelpers {
   _arr: any[] = [];
@@ -54,7 +55,18 @@ export class Apihelpers {
     }
   }
   submitFormData(formData: any): Observable<any> {
-   
-    return this.http.post('http://ec2-3-208-6-206.compute-1.amazonaws.com:8083/createTicket', formData);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization:
+          'Basic ' + btoa(`${environment.username}:${environment.pass}`),
+      }),
+    };
+
+    return this.http.post(
+      'http://ec2-3-208-6-206.compute-1.amazonaws.com:8083/createTicket',
+      formData,
+      httpOptions
+    );
   }
 }
