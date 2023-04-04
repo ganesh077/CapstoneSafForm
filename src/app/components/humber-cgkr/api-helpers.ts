@@ -11,7 +11,7 @@ export class Apihelpers {
     this._dh = new Datahelper();
   }
   call: Apihelpers;
-  
+
   async fetchStudent(id: string) {
     try {
       const data = await this.subbing(id);
@@ -64,7 +64,7 @@ export class Apihelpers {
     };
 
     return this.http.post(
-      'http://ec2-3-208-6-206.compute-1.amazonaws.com:8083/createTicket',
+      'http://localhost:8083/createTicket',
       formData,
       httpOptions
     );

@@ -82,11 +82,10 @@ export class SafSelectionComponent implements OnInit {
     console.log(actionsTakenString);
     console.log('Selected options:', selectedOptions);
     const requestData = {
-      summary: this.df.lastName + ', ' + this.df.firstName,
+      firstName: this.df.lastName + ', ' + this.df.firstName,
       description: this.df.humberId,
       registrarAction: selectedOptions.join(', '),
-      registrarComment:
-        this.formData.comments + '\n' + resultString + authorizedLeavesReason,
+      registrarComment: this.formData.comments + '\n' + resultString,
       components: 'Registration',
     };
     this.call.submitFormData(requestData).subscribe(
@@ -98,30 +97,6 @@ export class SafSelectionComponent implements OnInit {
       }
     );
     console.log(requestData);
-    // // Send form data to server
-    // this.http.post('https://send.com/post', this.formData).subscribe(
-    //   (response) => {
-    //     console.log('POST request successful', response);
-    //   },
-    //   (error) => {
-    //     console.log('Error sending POST request', error);
-    //   }
-    // );
-  } 
-  // submitFormData(formData: any): Observable<any> {
-  //   const httpOptions = {
-  //     headers: new HttpHeaders({
-  //       'Content-Type': 'application/json',
-  //       Authorization:
-  //         'Basic ' + btoa(`${environment.username}:${environment.pass}`),
-  //     }),
-  //   };
-
-  //   return this.http.post(
-  //     'http://ec2-3-208-6-206.compute-1.amazonaws.com:8083/createTicket',
-  //     formData,
-  //     httpOptions
-  //   );
-  // }
+  }
   ngOnInit(): void {}
 }

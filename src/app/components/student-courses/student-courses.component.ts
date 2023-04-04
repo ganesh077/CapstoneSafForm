@@ -15,7 +15,7 @@ export class StudentCoursesComponent implements OnInit {
     { name: 'Course 3', code: 'CSE103' },
     { name: 'Course 4', code: 'CSE104' },
     { name: 'Course 5', code: 'CSE105' },
-  ]; 
+  ];
   dropDetails: { courseCode: string; crn: string }[] = [];
   selectedActions: {
     action: string;
@@ -42,6 +42,17 @@ export class StudentCoursesComponent implements OnInit {
       disabled: false,
     };
     console.log(this.selectedActions);
+  }
+  handleAddSubmit(courseCode: string, crn: string): void {
+    const actionData = {
+      action: 'Add',
+      oldCourseCode: courseCode,
+      oldCrn: crn,
+      newCourseCode: courseCode,
+      newCrn: crn,
+    };
+    this.actionsTaken.push(actionData);
+    this.sharedService.updateActionsTaken(this.actionsTaken);
   }
 
   actionsTaken: any[] = [];
